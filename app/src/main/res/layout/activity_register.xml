@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegisterActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="683dp"
+        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="32dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/logo"
+            android:gravity="center"
+            android:orientation="vertical"/>
+
+        <EditText
+            android:id="@+id/textEmailRegister"
+            style="@style/TxtUsernamePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="E-Mail"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/textPasswordRegister"
+            style="@style/TxtUsernamePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword" />
+
+
+        <EditText
+            android:id="@+id/textIKMNameRegister"
+            style="@style/TxtUsernamePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Nama IKM"
+            android:inputType="textPersonName" />
+        <EditText
+            android:id="@+id/textIKMTelepon"
+            android:maxLength="12"
+            style="@style/TxtUsernamePass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Telepon IKM"
+            android:inputType="phone" />
+
+        <EditText
+            android:id="@+id/textAlamatNameRegister"
+            style="@style/TxtUsernamePass"
+            android:layout_width="match_parent"
+            android:layout_height="135dp"
+            android:ems="10"
+            android:hint="Alamat"
+            android:inputType="textLongMessage|textMultiLine" />
+
+        <Button
+            android:id="@+id/btnDoRegister"
+            style="@style/button_colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape_colored_primary"
+            android:text="Register" />
+        <Button
+            android:id="@+id/btnRegisterClose"
+            style="@style/button_colored"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_shape_colored_danger"
+            android:text="Kembali" />
+
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

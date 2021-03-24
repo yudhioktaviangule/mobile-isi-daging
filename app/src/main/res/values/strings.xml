@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Sidagin</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_dashboard">Produkku</string>
+    <string name="title_home">Profile</string>
+    <string name="server">http://172.20.10.3:8000</string>
+</resources>

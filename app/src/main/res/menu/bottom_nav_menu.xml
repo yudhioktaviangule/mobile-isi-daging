@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_dashboard"
+        android:icon="@drawable/ic_lst_product"
+        android:title="@string/title_dashboard" />
+    <item
+        android:id="@+id/nav_add_product"
+        android:icon="@drawable/ic_twotone_add_box_24"
+        android:title="Tambah Produk" />
+    <item
+        android:id="@+id/nav_profil"
+        android:icon="@drawable/ic_twotone_account_box"
+        android:title="@string/title_home" />
+    <item
+        android:id="@+id/nav_sidagin"
+        android:icon="@drawable/ic_twotone_info_24"
+        android:title="About" />
+
+
+
+</menu>
