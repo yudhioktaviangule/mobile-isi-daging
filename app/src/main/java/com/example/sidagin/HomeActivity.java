@@ -20,7 +20,7 @@ import com.google.android.material.snackbar.Snackbar;
 public class HomeActivity extends AppCompatActivity {
     private static final String TAG ="NOAH" ;
     Bundle myBundle;
-    Fragment fragmentSelected = null;
+    Fragment fragmentSelected,escobar = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,19 @@ public class HomeActivity extends AppCompatActivity {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
         fragmentSelected = new DashboardFragment(getApplicationContext());
+        escobar = fragmentSelected;
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragmentSelected).commit();
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Fragment f = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if(f instanceof DashboardFragment){
+            fragmentSelected = new DashboardFragment(getApplicationContext());
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragmentSelected).commit();
+        }
 
     }
 

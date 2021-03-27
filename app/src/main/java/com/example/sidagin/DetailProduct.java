@@ -56,9 +56,15 @@ public class DetailProduct extends AppCompatActivity {
             delete.enqueue(new Callback<Products>() {
                 @Override
                 public void onResponse(Call<Products> call, Response<Products> response) {
-                    Snackbar.make(findViewById(R.id.activityDetailProductID),"Done Request",Snackbar.LENGTH_LONG)
+                    Snackbar.make(findViewById(R.id.activityDetailProductID),"berhasil Menghapus data",Snackbar.LENGTH_LONG)
+                            .setAction("Kembali", new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    finish();
+                                }
+                            })
                             .show();
-                    finish();
+
                 }
 
                 @Override
