@@ -7,6 +7,7 @@ import java.util.List;
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import retrofit2.Call;
+import retrofit2.http.DELETE;
 import retrofit2.http.GET;
 
 import retrofit2.http.Headers;
@@ -33,4 +34,6 @@ public interface ProductApi {
     Call<Products> getDetail(
             @Path("id") String id
     );
+
+    
 }

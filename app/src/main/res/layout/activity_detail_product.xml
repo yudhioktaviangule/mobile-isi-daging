@@ -38,13 +38,23 @@
             android:paddingVertical="8dp"
             />
         <Button
-            android:id="@+id/btnDetailKembli"
+            android:id="@+id/btnDetailHapus"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAllCaps="false"
             android:background="@drawable/button_shape_colored_danger"
             style="@style/button_colored"
+            android:text="Hapus"
+            />
+        <Button
+            android:id="@+id/btnDetailKembli"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:background="@drawable/button_shape_colored_primary"
+            style="@style/button_colored"
             android:text="Kembali"
             />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

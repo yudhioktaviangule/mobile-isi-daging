@@ -20,7 +20,7 @@ import com.example.sidagin.requests.products.DetailProducts;
 public class DetailProduct extends AppCompatActivity {
     TextView namaProduk,deskripsiProduk;
     ImageView image;
-    Button tombol;
+    Button tombol,hapus;
     ProgressDialog pd;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +36,17 @@ public class DetailProduct extends AppCompatActivity {
         deskripsiProduk = findViewById(R.id.textDetailDescription);
         pd = new ProgressDialog(DetailProduct.this);
         tombol = findViewById(R.id.btnDetailKembli);
+        hapus = findViewById(R.id.btnDetailHapus);
         networking();
         tombol.setOnClickListener(listenKembali);
     }
 
+    private final View.OnClickListener listenerHapus = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+
+        }
+    };
     private final View.OnClickListener listenKembali = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
