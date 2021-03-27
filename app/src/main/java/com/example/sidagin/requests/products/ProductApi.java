@@ -35,5 +35,8 @@ public interface ProductApi {
             @Path("id") String id
     );
 
+    @DELETE("api/products/{id}")
+    Call<Products> del(@Path("id") int id);
+
     
 }

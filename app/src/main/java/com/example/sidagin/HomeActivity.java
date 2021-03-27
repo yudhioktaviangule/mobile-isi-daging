@@ -32,6 +32,8 @@ public class HomeActivity extends AppCompatActivity {
         //myBundle.putString("cache.dir",cachet);
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNav);
         bottomNavigationView.setOnNavigationItemSelectedListener(navListener);
+        fragmentSelected = new DashboardFragment(getApplicationContext());
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,fragmentSelected).commit();
 
     }
 
@@ -51,7 +53,6 @@ public class HomeActivity extends AppCompatActivity {
                     Log.d(TAG, "onNavigationItemSelected: ");
                     fragmentSelected = new AboutFragment(getApplicationContext());
                     break;
-
                 default:
                     fragmentSelected = new DashboardFragment(getApplicationContext());
                     break;

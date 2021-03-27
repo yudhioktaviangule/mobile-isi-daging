@@ -12,16 +12,21 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sidagin.models.products.Products;
 import com.example.sidagin.requests.products.DetailProducts;
+import com.example.sidagin.requests.products.HapusDataProdukRequest;
+import com.google.android.material.snackbar.Snackbar;
 
 public class DetailProduct extends AppCompatActivity {
     TextView namaProduk,deskripsiProduk;
     ImageView image;
     Button tombol,hapus;
     ProgressDialog pd;
+    private Bundle bdl;
+    Products products;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,12 +44,28 @@ public class DetailProduct extends AppCompatActivity {
         hapus = findViewById(R.id.btnDetailHapus);
         networking();
         tombol.setOnClickListener(listenKembali);
+        hapus.setOnClickListener(listenerHapus);
     }
 
     private final View.OnClickListener listenerHapus = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            String token = bdl.getString("device_id");
+            Retrofit retrofit = HapusDataProdukRequest.retrofit(token);
+            Call<Products> delete = HapusDataProdukRequest.deleteProduct(retrofit,products.getId());
+            delete.enqueue(new Callback<Products>() {
+                @Override
+                public void onResponse(Call<Products> call, Response<Products> response) {
+                    Snackbar.make(findViewById(R.id.activityDetailProductID),"Done Request",Snackbar.LENGTH_LONG)
+                            .show();
+                    finish();
+                }
 
+                @Override
+                public void onFailure(Call<Products> call, Throwable t) {
+
+                }
+            });
         }
     };
     private final View.OnClickListener listenKembali = new View.OnClickListener() {
@@ -57,7 +78,7 @@ public class DetailProduct extends AppCompatActivity {
 
 
     private void networking() {
-        Bundle bdl = getIntent().getExtras();
+       bdl = getIntent().getExtras();
         String token = bdl.getString("device_id");
         String productId = bdl.getString("product.id");
         Retrofit retrofit = DetailProducts.retrofitGet(token);
@@ -75,6 +96,7 @@ public class DetailProduct extends AppCompatActivity {
                             .asBitmap()
                             .load(url)
                             .into(image);
+                    products = response.body();
                     namaProduk.setText(response.body().getName());
                     deskripsiProduk.setText(response.body().getDescription());
                 }

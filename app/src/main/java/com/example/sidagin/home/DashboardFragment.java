@@ -40,7 +40,7 @@ public class DashboardFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        Bundle myfBundle = getArguments();
+        Bundle myfBundle = getActivity().getIntent().getExtras();
         this.ikm = myfBundle.getString("ikm.id");
         this.device_id = myfBundle.getString("device_id");
         View inflet =inflater.inflate(R.layout.fr_dashboard,container,false);
